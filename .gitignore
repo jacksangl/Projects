@@ -1,3 +1,5 @@
 # Ignore all files in a folder named "projects"
-jacksangl/projects/
-!jacksangl/projects/personal/
+jacksangl/projects/labs/
+jacksangl/projects/homework/
+jacksangl/projects/practice
+jacksangl/.vscode/
