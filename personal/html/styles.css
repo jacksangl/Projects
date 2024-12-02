@@ -1,0 +1,112 @@
+/* sets headerbar color and formats it*/
+header{
+    background-color: #E0FBFC;
+    font-size: 24px;
+    color: #253237;
+    font-family: "Merriweather", sans-Serif;
+}
+/* all three format the unordered list and its hyperlinks*/
+.navdirect_ul{
+    margin-right: 15px;
+    justify-content: flex-end;
+    list-style-type: none;
+    display: flex;
+}
+.navdirect_ul li {
+    color: #253237;
+    background-color: transparent;
+    text-decoration: none;
+    margin-right: 15px;
+}
+.navdirect_ul a {
+    color: #253237;
+    text-decoration: none;
+}
+
+#icondirect{
+    margin-right: 15px;
+    justify-content: flex-end;
+    list-style-type: none;
+    display: flex;
+}
+#icrondirect li {
+    color: #253237;
+    background-color: transparent;
+    text-decoration: none;
+    margin-right: 15px;
+}
+#icondirect a {
+    color: #253237;
+    text-decoration: none;
+}
+.fa:hover {
+    opacity: 0.6;
+  }
+
+/* formats body tag and hyperlinks*/
+.body {
+    background-color: #C2DFE3;
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(4, 9, 4);
+    padding: 10px;
+    position: absoulte
+}
+  .contact {
+    background-color: #C2DFE3;
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(4, 9, 4);
+    padding: 10px;
+    position: absoulte
+  }  
+
+.body img{
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    position: absoulte
+    
+}
+.body a{
+    color: #4083af;
+    text-decoration: none;
+    line-height: 30px;
+}
+
+/* formats containers*/
+.container {
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+}
+
+/*formats header names like Jack Sangl or About Me*/
+.name {
+    font-size: 50px;
+    color: #253237;
+    font-family: "Merriweather", sans-Serif;
+}
+/*colors body of webpage*/
+body {
+    background-color: #9DB4C0;
+}
+
+.fa { 
+    font-size: 30px;
+    text-decoration: none;
+    border-radius: 50%;
+    margin: 5px 2px;
+  }
+.body iframe {
+    background-color: #C2DFE3;
+    margin: auto;
+    width: 95%;
+    padding: 10px;
+    position: absoulte; 
+    size: 8.5in 11in;
+}
+@page {
+    size: 8.5in 11in; 
+    margin: 1in; 
+}
