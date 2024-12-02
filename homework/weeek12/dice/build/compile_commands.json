@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/jacksangl/Projects/dice/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/program.dir/main.cpp.o -c /Users/jacksangl/Projects/dice/main.cpp",
+  "file": "/Users/jacksangl/Projects/dice/main.cpp",
+  "output": "CMakeFiles/program.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/jacksangl/Projects/dice/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/program.dir/dice.cpp.o -c /Users/jacksangl/Projects/dice/dice.cpp",
+  "file": "/Users/jacksangl/Projects/dice/dice.cpp",
+  "output": "CMakeFiles/program.dir/dice.cpp.o"
+}
+]

@@ -1,0 +1,3 @@
+/Users/jacksangl/Projects/dice/build/CMakeFiles/program.dir
+/Users/jacksangl/Projects/dice/build/CMakeFiles/edit_cache.dir
+/Users/jacksangl/Projects/dice/build/CMakeFiles/rebuild_cache.dir
