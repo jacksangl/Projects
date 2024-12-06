@@ -1,9 +1,16 @@
 /* sets headerbar color and formats it*/
 header{
-    background-color: #E0FBFC;
+    background-color: #edf2f4;
     font-size: 24px;
     color: #253237;
     font-family: "Merriweather", sans-Serif;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.header-nav-bar 
+{
+    position: sticky;
+    top: 0px;
+    z-index: 1;
 }
 /* all three format the unordered list and its hyperlinks*/
 .navdirect_ul{
@@ -12,14 +19,20 @@ header{
     list-style-type: none;
     display: flex;
 }
+
+.navdirect_ul a:hover, #resume :hover{
+    color: #ef233c;
+}
+
 .navdirect_ul li {
-    color: #253237;
+    color: #2b2d42;
     background-color: transparent;
     text-decoration: none;
-    margin-right: 15px;
+    margin-right: 25px;
+    
 }
 .navdirect_ul a {
-    color: #253237;
+    color: #2b2d42;
     text-decoration: none;
 }
 
@@ -41,35 +54,36 @@ header{
 }
 .fa:hover {
     opacity: 0.6;
+    color: #ef233c;
   }
 
 /* formats body tag and hyperlinks*/
 .body {
-    background-color: #C2DFE3;
+
     margin: auto;
-    width: 50%;
-    border: 3px solid rgb(4, 9, 4);
+    width: 700px;
     padding: 10px;
-    position: absoulte
 }
   .contact {
     background-color: #C2DFE3;
     margin: auto;
     width: 50%;
     border: 3px solid rgb(4, 9, 4);
-    padding: 10px;
-    position: absoulte
+    position: absolute;
+    margin-bottom: 20px;
+    padding: 15px;
+
   }  
+
 
 .body img{
     margin: auto;
     width: 100%;
     padding: 10px;
-    position: absoulte
     
 }
 .body a{
-    color: #4083af;
+    color: #2b2d42;
     text-decoration: none;
     line-height: 30px;
 }
@@ -79,17 +93,19 @@ header{
     display: flex;
     flex-direction: column;
     line-height: 30px;
+    margin-bottom: 20px;
+    padding: 15px;
 }
 
 /*formats header names like Jack Sangl or About Me*/
 .name {
-    font-size: 50px;
-    color: #253237;
+    font-size: calc(40px + 2vw); /*ai suggestion to calculate width based on screen*/
+    color: #ef233c;
     font-family: "Merriweather", sans-Serif;
 }
 /*colors body of webpage*/
 body {
-    background-color: #9DB4C0;
+    background-color: #edf2f4;
 }
 
 .fa { 
@@ -103,7 +119,7 @@ body {
     margin: auto;
     width: 95%;
     padding: 10px;
-    position: absoulte; 
+    position: absolute; 
     size: 8.5in 11in;
 }
 @page {
