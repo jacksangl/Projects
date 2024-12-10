@@ -29,16 +29,15 @@ int main()
     int size = 0;
     while (true)
     {
-        cout << "Please enter a string:";
+        cout << "Please enter a string: ";
         getline(cin, input);
-        size = input.length();
-        reverseString(input, size);
+        reverseString(input, input.length());
         cout << endl << endl << "Enter another string (Y/N): ";
         cin >> again;
         tolower(again);
         if (again == 'y')
         {
-            cin.clear();
+            cin.ignore();
             continue;
         }
         else if (again == 'n')
@@ -59,18 +58,34 @@ int main()
 
 void reverseString(string input, int size)
 {
-    // base case
+    string copy = input;
+    int length = input.length();
     if (size == 0)
     {
-        
-    }
-    else 
-    {
-        size -= 1;
-        reverseString(input, size)
-    }
     cout << "Your reverse string is: " << endl;
     cout << input; 
     return;
+    }
+    // recursive case
+    else 
+    {
+        input.replace(length-size, 1, 1, copy[size-1]);
+        size -= 1;
+        reverseString(input, size);
+    }
     // recursive case
 }
+
+/*
+Output
+Please enter a string: Maybe I'll go to the movies.
+Your reverse string is: 
+.seivom eht otto the movies.
+
+Enter another string (Y/N): y
+Please enter a string: However, I think I'll get dinner first!
+Your reverse string is: 
+!tsrif rennid teg lll get dinner first!
+
+Enter another string (Y/N): n
+*/
