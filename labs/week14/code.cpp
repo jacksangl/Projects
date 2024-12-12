@@ -33,6 +33,7 @@ int main()
     while (upper <= 0)
     {
         cout << "Invalid input, the upper limit must be greater than 0!" << endl;
+        cout << "Enter the upper limit of the guessing number: ";
         cin >> upper;
     }
     // get random number
@@ -70,3 +71,24 @@ bool guessFn(int random, const int limit)
         return true;
     }
 }
+
+/*
+Output
+Enter the upper limit of the guessing number: 50
+Enter your guess between 1 and 50: 10
+Too high, try again.
+
+Enter your guess between 1 and 50: 9
+Too high, try again.
+
+Enter your guess between 1 and 50: 8
+Too high, try again.
+
+Enter your guess between 1 and 50: 1
+Too low, try again.
+
+Enter your guess between 1 and 50: 2
+Too low, try again.
+
+Enter your guess between 1 and 50: 3
+*/
