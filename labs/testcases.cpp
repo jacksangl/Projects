@@ -42,6 +42,7 @@ int main() {
 
 
     delete[] ptr;
+    delete [] ptr2;
 }
 
 void sort(int *ptr, int size) {
