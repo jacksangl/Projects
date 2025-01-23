@@ -9,7 +9,8 @@
         "stopAtEntry": false,
         "cwd": "${fileDirname}",
         "environment": [],
-        "externalConsole": false,
+        "externalConsole": true,
+        "internalConsoleOptions":"openOnFirstSessionStart",
         "MIMode": "lldb",
         "preLaunchTask": "C/C++: clang++ build active file"
       }
