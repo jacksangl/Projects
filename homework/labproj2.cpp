@@ -76,7 +76,7 @@ int *price_history(int &counter)
     char cur;
     cout << "Please type the 12-day price history of the stock:" << endl;
     getline(cin, price);
-    int length = price.length();
+    int length= static_cast<int>(price.length());
 
     for (int i = 0; i <= length; i++)
     {
