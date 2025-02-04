@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "ostream": "cpp",
+        "print": "cpp",
+        "bitset": "cpp",
+        "unordered_map": "cpp"
+    }
+}
