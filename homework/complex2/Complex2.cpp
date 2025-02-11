@@ -4,7 +4,6 @@
 // One Complex object holds one Complex number
 
 #include "Complex2.h"
-#include <cmath> 
 #include <iomanip>
 
 //------------------------------ Complex ------------------------------------
@@ -18,27 +17,30 @@ Complex::Complex(double re, double im)
 //(a)------------------------------- add -------------------------------------
 // overloaded +: addition of 2 complex numbers, current object and parameter
 Complex Complex::operator+(const Complex & z) {
+
    Complex c;
-   c.re = re+z.re;
-   c.im = im+z.im;
-   return c;
+   c.re = this->re + z.re;
+   c.im = this->im + z.im;
+   return c; 
 }
 
 //(b)------------------------------ subtract ---------------------------------
 // overloaded -: subtract 2 complex numbers, current object and parameter
 Complex Complex::operator-(const Complex & z) {
+
    Complex c;
-   c.re = re-z.re;
-   c.im = im-z.im;
-   return c;
+   c.re = this->re - z.re;
+   c.im = this->im - z.im;
+   return c; 
 }
 
 //(c)------------------------------ multiply ---------------------------------
 // overloaded *: multiply 2 complex numbers, current object and parameter
 Complex Complex::operator*(const Complex & z) {
+
    Complex c;
-   c.re =( re*z.re) - (im*z.im);
-   c.im =(re*z.im)+(im*z.re);
+   c.re = (this->re*z.re) - (this->im*z.im);
+   c.im = (this->re*z.im) + (this->im*z.re);
    return c;
 }
 
@@ -53,56 +55,62 @@ Complex Complex::operator/(const Complex & z) {
    else if (z.im == 0) 
       cerr<<"DIVIDE BY ZERO ERROR!!!" << endl;
    else {
-      c.re =(re*z.re+im*z.im) / ((z.re*z.re)+(z.im*z.im));
-      c.im =(im*z.re-re*z.im) / ((z.re*z.re)+(z.im*z.im));
+      c.re =(this->re*z.re+this->im*z.im) / ((z.re*z.re)+(z.im*z.im));
+      c.im =(this->im*z.re-this->re*z.im) / ((z.re*z.re)+(z.im*z.im));
    }
    count ++;
    return c;
+   /*(ac + bd) / (c2 + d2) + (bc – ad) / (c2 + d2)i*/
 }
 
 //(e)-------------------------------- equal ----------------------------------
 // overloaded ==: equal comparison of current Complex object and parameter
-Complex Complex::operator==(const Complex c) {
-   if (c.re != re)
+bool Complex::operator==(const Complex &z)
+{
+   if (z.re != this->re)
       return false;
-   if (c.im != im)
+   if (z.im != this->im)
       return false;
 
    return true;
+
 }
 
 //(f)------------------------------- not equal -------------------------------
 // overloaded !=: not equal comparison of current Complex object and parameter
-ostream & operator<<(ostream & os, Complex & z)
+bool Complex::operator!=(const Complex &z)
 {
-   static int count = 0;
-   cout << setprecision(2) << fixed << showpoint;
-   if (is_parenthesis && im >=0) {
-      cout << "(" << re << " + " << im << "i)";
-   }
-   else if (is_parenthesis && im <=0) {
-      cout << "(" << re << " - " << abs(im) << "i)";
-   }
-   else if (im >=0)
-      cout << re << " + " << im << "i";
-   else
-      cout << re << " - " << abs(im) << "i";
+   if (z.re == re)
+      return false;
+   if (z.im == im)
+      return false;
 
+   return true;
 
-   return;
 }
 
 
 //(g)-------------------------------- print-----------------------------------
 // overloaded print()
+void Complex::print(ostream& os) {
+   static int count = 0;
+   os << setprecision(1) << fixed << showpoint;
+   if (this->im >=0) {
+      os << "(" << re << " + " << im << "i)";
+   }
+   else
+      os << "(" << re << " - " << abs(im) << "i)";
 
+   return;
+}
 
 
 //(h)--------------------------------- << -------------------------------------
 // overloaded << (output operator)
 ostream & operator<<(ostream & os, Complex & z)
 {
-    
+   z.print(os);
+   return os;
 }
 
 
