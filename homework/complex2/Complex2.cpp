@@ -1,4 +1,17 @@
+// Academic Integrity Affidavit:
+// I certify that this program code is my work.  Others may have
+// assisted me with planning and concepts, but the code was written,
+// solely, by me.
+// I understand that submitting code that is totally or partially
+// the product of other individuals is a violation of the Academic
+// Integrity Policy and accepted ethical precepts. Falsified
+// execution results are also results of improper activities. Such
+// violations may result in zero credit for the assignment, reduced
+// credit for the assignment, or course failure.
 //
+// Name: <Jack Sangl>
+// Section: <Lab 003L>
+// Assignment: complex2
 // Name: skeleton template for overloading operators  
 //
 // One Complex object holds one Complex number
@@ -112,5 +125,19 @@ ostream & operator<<(ostream & os, Complex & z)
    z.print(os);
    return os;
 }
+
+/*
+(7.0 + 3.0i) + (1.0 - 2.0i) = (8.0 + 1.0i)
+(7.0 + 3.0i) - (1.0 - 2.0i) = (6.0 + 5.0i)
+(7.0 + 3.0i) * (1.0 - 2.0i) = (13.0 - 11.0i)
+(7.0 + 3.0i) / (1.0 - 2.0i) = (0.2 + 3.4i)
+(7.0 + 3.0i) / (0.0 + 0.0i) = DIVIDE BY ZERO ERROR!!!
+(7.0 + 3.0i) == (7.0 + 3.0i) is equal 
+(7.0 + 3.0i) == (1.0 - 2.0i) is not equal
+(7.0 + 3.0i) != (7.0 + 3.0i) is false
+(7.0 + 3.0i) != (1.0 - 2.0i) is true
+
+(7.0 + 3.0i) + (7.0 + 3.0i) / (1.0 - 2.0i) - (1.0 - 2.0i) * (7.0 + 3.0i) = (-5.8 + 17.4i)
+*/
 
 
