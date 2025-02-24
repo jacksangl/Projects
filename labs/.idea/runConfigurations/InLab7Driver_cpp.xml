@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="InLab7Driver.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/list2" PASS_PARENT_ENVS_2="true" PROJECT_NAME="labs" TARGET_NAME="InLab7Driver.cpp" CONFIG_NAME="InLab7Driver.cpp">
+    <option name="sourceFile" value="$PROJECT_DIR$/list2/InLab7Driver.cpp" />
+    <method v="2">
+      <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>
