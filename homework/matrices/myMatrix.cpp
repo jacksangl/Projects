@@ -92,11 +92,11 @@ myMatrix::myMatrix(unsigned heightVal, unsigned WidthVal, int * sourceArray) {
 }
 
 void myMatrix::Concatenate(myMatrix & matrixToConcatenate) {
-	int other = matrixToConcatenate.GetHeight();
+	unsigned other = matrixToConcatenate.GetHeight();
 	if (this->height != other)
 		return;
 	other = matrixToConcatenate.GetWidth();
-	int total = (this->width+other)*height;
+	unsigned total = (this->width+other)*height;
 	int *ptr = new int [total];
 	int *ptr2 = matrixToConcatenate.getPtr();
 	int count = 0;
@@ -124,7 +124,7 @@ void myMatrix::Concatenate(myMatrix & matrixToConcatenate) {
 }
 
 void myMatrix::operator+=(myMatrix & matrixToAdd) {
-	int other_h= matrixToAdd.GetHeight(), other_w = matrixToAdd.GetWidth();
+	unsigned other_h= matrixToAdd.GetHeight(), other_w = matrixToAdd.GetWidth();
 
 	if ((other_h!= this->height) || other_w != this->width)
 		return;

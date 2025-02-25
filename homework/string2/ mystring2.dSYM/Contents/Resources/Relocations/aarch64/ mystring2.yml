@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/jacksangl/Projects/homework/string2/ mystring2'
+relocations:     []
+...
