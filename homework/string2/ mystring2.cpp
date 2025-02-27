@@ -2,6 +2,7 @@
 // ================
 // Implementation file for user-defined String class.
 #include "mystring2.h"
+#include <cstring>
 #pragma warning(disable:4996)   // disbale the unsafe warning message to use strcpy_s(), etc
 
 
@@ -17,70 +18,121 @@ String::String(const char s[])
 {
     len = strlen(s);
     contents = new char[len];
-    for (int i = 0; i <= len; i++) {
-      contents[i] = s[i];
-    }
+    strcpy(contents, s);
+    contents[len] = '\0';
 }
 String::~String() {
-    delete [] contents; 
+    if (contents != nullptr)
+        delete [] contents; 
 }
 
-void String::append(const String &str)
+String& String::append(const String &str)
 {
-  strcat(contents, str.contents);
-  len += str.len;
+    int before = len;
+    int other = str.len;
+    len += other;
+    char *copy = new char [len+1];
+
+    for (int i = 0; i < len; i++) 
+      copy[i] = contents[i];
+
+    delete [] contents;
+
+    for (int i = before; i < len; i++) {
+      copy[i] = str.contents[i-before];
+    }
+
+    contents = copy;
+    contents[len+1] = '\0';
+
+    return *this;
 }
 
-String & String::operator=(const String &str) {
-    if (this != &str)    // check for list = list
-   {
-        delete[] contents;
-        len = str.len;
+String& String::operator=(const String& str) { 
+    
+    len = str.len;
+    char *copy = new char [len+1];
 
-        contents = new char[len];
-   //--- Copy origList's array into this new array
-        for(int i = 0; i < len; i++)
-            contents[i] = str.contents[i];
-   }
-   return *this;
+    for (int i = 0; i < len; i++) 
+      copy[i] = str.contents[i];
+
+    delete [] contents;
+    contents = copy;
+    contents[len+1] = '\0';
+
+    return *this;
+
 }
 
-String::String(const String &str) {
-    len = str.len; 
-    contents = new char[len]; 
-    for(int i = 0; i < len; i++) 
-        contents[i] = str.contents[i]; 
-}
-
-bool String::operator ==(const String &str) const
+bool String::operator ==(const String & str) const
 {
-  return strcmp(contents, str.contents) == 0;
+  if (len != str.len)
+    return false;
+
+
+  for (int i = 0; i <= len; i++) {
+    if (contents[i] != str.contents[i])
+      return false;
+  }
+
+  return true;
 }
 
 bool String::operator !=(const String &str) const
 {
-  return strcmp(contents, str.contents) != 0;
+  if (len != str.len)
+    return true;
+
+
+  for (int i = 0; i <= len; i++) {
+    if (contents[i] != str.contents[i])
+      return true;
+  }
+
+  return false;
 }
 
 bool String::operator >(const String &str) const
 {
-  return strcmp(contents, str.contents) > 0;
+  if (len > str.len)
+    return true;
+  return false;
 }
 
 bool String::operator <(const String &str) const
 {
-  return strcmp(contents, str.contents) < 0;
+  if (len < str.len)
+    return true;
+  return false;
 }
 
 
 bool String::operator >=(const String &str) const
 {
-  return strcmp(contents, str.contents) >= 0;
+  if (len >= str.len)
+    return true;
+  return false;
 }
 
 String String::operator +=(const String &str)
 {
-    append(str);
+     int before = len;
+    int other = str.len;
+    len += other;
+    char *copy = new char [len+1];
+
+    for (int i = 0; i < len; i++) 
+      copy[i] = contents[i];
+
+    delete [] contents;
+
+    for (int i = before; i < len; i++) {
+      copy[i] = str.contents[i-before];
+    }
+
+    contents = copy;
+    contents[len+1] = '\0';
+
     return *this;
 }
 
@@ -106,6 +158,20 @@ ostream & operator<<(ostream &out, const String & s) // overload ostream operato
 {
 s.print(out);
 return out;
+}
+
+String::String(const String &str) {
+    len = str.len;
+    char *copy = new char [len+1];
+
+    for (int i = 0; i < len; i++) 
+      copy[i] = str.contents[i];
+    if (contents != nullptr)
+      delete [] contents;
+    contents = copy;
+    contents[len+1] = '\0';
+
+    return;
 }
 
 /*

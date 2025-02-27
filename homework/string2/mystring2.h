@@ -9,9 +9,9 @@ class String {
 public:
   String();
   String(const char s[]);  // a conversion constructor   
-  void append(const String &str);
+  String& append(const String &str);
   ~String();
-  String & operator=(const String &str);
+String& operator=(const String& str) ;
   String(const String &str);
 
   // Relational operators
