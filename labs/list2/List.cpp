@@ -73,6 +73,7 @@ List & List::operator=(const List & origList)
 }
 
 
+
 List::List(ElementType* arr, int arrSize, int capacity) {
     myCapacity = (capacity > 0) ? capacity : DEFAULT_CAP;
     mySize = (arrSize > 0) ? arrSize : 0;
