@@ -8,13 +8,10 @@ class Node {
 public:
     Type data;
     Node* next;
-    ~Node();
+    
 
 };
 
-Node::~Node() {
-    delete this->next;
-}
 
 void insert(Node*& first, unsigned position, Type data);
 
@@ -46,11 +43,12 @@ bool GetElement(Node * first, int position, Type & data) {
 
 void InsertToSortedLinkedList(Node * &first, Type data) {
     int pos = 0;
-    bool inserted;
+    bool inserted = false;
     
     Node* insert = new Node;
     insert->data = data;
     Node* cur = first;
+
 
 
     while (cur != NULL) {
@@ -96,7 +94,7 @@ void insert(Node*& first, unsigned position, Type data) {
     }
     else {
         Node* prev = first;
-        int currentIndex = 1;
+        unsigned currentIndex = 1;
         while (currentIndex < position) {
             prev = prev->next;
             currentIndex++;
@@ -125,7 +123,7 @@ void remove(Node*& first, unsigned position) {
     }
     else {
         Node* prev = first;
-        int currentIndex = 1;
+        unsigned currentIndex = 1;
         while (currentIndex < position) {
             prev = prev->next;
             currentIndex++;
@@ -208,4 +206,5 @@ int main() {
         display(first);
         cout << endl;
     }
+
 }

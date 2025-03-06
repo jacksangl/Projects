@@ -33,7 +33,7 @@ String& String::append(const String &str)
     len += other;
     char *copy = new char [len+1];
 
-    for (int i = 0; i < len; i++) 
+    for (int i = 0; i < before; i++) 
       copy[i] = contents[i];
 
     delete [] contents;
@@ -121,7 +121,7 @@ String String::operator +=(const String &str)
     len += other;
     char *copy = new char [len+1];
 
-    for (int i = 0; i < len; i++) 
+    for (int i = 0; i < before; i++) 
       copy[i] = contents[i];
 
     delete [] contents;
