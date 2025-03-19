@@ -1,3 +1,17 @@
+// Academic Integrity Affidavit:
+// I certify that this program code is my work.  Others may have
+// assisted me with planning and concepts, but the code was written,
+// solely, by me.
+// I understand that submitting code that is totally or partially
+// the product of other individuals is a violation of the Academic
+// Integrity Policy and accepted ethical precepts. Falsified
+// execution results are also results of improper activities. Such
+// violations may result in zero credit for the assignment, reduced
+// credit for the assignment, or course failure.
+//
+// Name: <Jack Sangl>
+// Section: <Lab 003L>
+// Assignment: Jack Sangl
 #include <iostream>
 
 using namespace std;
@@ -208,3 +222,29 @@ int main() {
     }
 
 }
+
+/*
+Given linked list: 10 4 2 6 42 50 
+The length is 6
+Failed to find data at position 3
+
+Given linked list: 5 2 6 4 6 
+The length is 5
+Failed to find data at position 0
+
+Given linked list: 1 3 5 7 9 11 53 70 
+The length is 8
+Failed to find data at position 7
+
+Failed to find data at position 8
+
+Try to insert 8 into this linked list, the list becomes:
+1 3 5 7 8 9 11 53 70 
+
+Try to insert 0 into this linked list, the list becomes:
+0 1 3 5 7 8 9 11 53 70 
+
+Try to insert 100 into this linked list, the list becomes:
+0 1 3 5 7 8 9 11 53 70 100 
+
+*/
