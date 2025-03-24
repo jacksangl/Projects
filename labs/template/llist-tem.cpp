@@ -61,6 +61,18 @@ void insert(Node <T> *&first, int pos, T data) {
     return;
     
 }
+
+template <typename T>
+void clear(Node<T> *&first) {
+    Node<T> *cur = first;
+    while (cur != NULL) {
+        Node<T> *temp = cur;
+        cur = cur->next;
+        delete temp;
+    }
+    first = NULL;
+}
+
 // Display
 template <typename T>
 void display(Node<T> *first)
@@ -91,6 +103,10 @@ int main()
     insert<double>(dfirst, 4, 15.84);
     cout << "A Linked List of Doubles: " << endl;
     display<double>(dfirst);
+
+    clear (ifirst);
+    clear (dfirst);
+    return 0;
 }
 
 /*
