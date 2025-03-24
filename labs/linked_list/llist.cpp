@@ -118,6 +118,7 @@ void insert(Node*& first, unsigned position, Type data) {
         prev->next->data = data;
         prev->next->next = temp;
     }
+    
 }
 
 void display(Node* first) {
