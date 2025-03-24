@@ -17,7 +17,14 @@
 using namespace std;
 int CountDigits(int n)
 {
-    // Fill in your code
+    int count = 0;
+    // base case
+    if (n < 10) {
+        count++;
+        return count;
+    }
+    count++;
+    return count += CountDigits(n/10);
 }
 void TestCountDigits(int n)
 {
