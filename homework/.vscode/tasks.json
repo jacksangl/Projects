@@ -6,6 +6,7 @@
             "label": "C/C++: clang++ build active file", // This label must match the preLaunchTask in launch.json
             "command": "/usr/bin/clang++",
             "args": [
+                "-std=c++20",
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
                 "-g", // Include debugging symbols
