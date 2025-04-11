@@ -21,12 +21,12 @@
 #include <vector>
 using namespace std;
 
-int countPaths(int north, int east);
+double countPaths(double north, double east);
 
 int main() {
     Timer t;
     char cont;
-    int north = 0, east = 0, count = 0;
+    double north = 0, east = 0, count = 0;
     while (true) {
         t.start();
         cout <<"How many points north of A is B?" << endl;
@@ -49,7 +49,7 @@ int main() {
 }
 
 // use math instead
-int countPaths(int north, int east) {
+double countPaths(double north, double east) {
     return (tgamma((east+north)+1))/(tgamma(east+1) * tgamma(north+1));
 }
 

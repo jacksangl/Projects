@@ -25,10 +25,10 @@ using namespace std;
 struct TreeNode
 {
     string studentName;
-    float averageGrade;
-    int numCourses;
-    TreeNode *left;
-    TreeNode *right;
+    float averageGrade = 0.0;
+    int numCourses = 0;
+    TreeNode *left = NULL;
+    TreeNode *right = NULL;
 };
 
 void Insert(TreeNode *&root, string studentName, float grade);
@@ -110,6 +110,7 @@ void Insert(TreeNode *&root, string studentName, float grade)
 
     return;
     }
+
     void PrintTree(TreeNode * root, ofstream & out)
     {
         if (root == NULL)
@@ -145,5 +146,4 @@ Mike 80
 Patric 30
 Peter 95
 Pique 55
-
 */
