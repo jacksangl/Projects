@@ -11,11 +11,12 @@
 //
 // Name: <Jack Sangl>
 // Section: <Lab 003L>
-// Assignment: inlab12
-
+// Assignment: In Lab Proj 13
 #include <iostream>
 #include <string>
 #include <queue>
+#include <cstdlib>
+#include <climits>
 
 using namespace std;
 
@@ -28,47 +29,46 @@ typedef int Type;
 class BinNode {
 public:
     Type data;
+    int subTreeSize;
     BinNode* left;
     BinNode* right;
 };
 
 
 /////////////////////////////////////////////////////////////////////
-// NOTE: Place your 3 functions below here
+// Implement your function here
 /////////////////////////////////////////////////////////////////////
 
-int CountLeaves(BinNode* root) {
-    if (root == NULL)
-        return 0;
-    else if (root->left == NULL && root->right == NULL)
-        return 1;
-    else if (root->left == NULL)
-        return CountLeaves(root->right);
-    else if (root->right == NULL)
-        return CountLeaves(root->left);
-    else
-        return CountLeaves(root->left) + CountLeaves(root->right);
-}
-
-int CountSmaller5(BinNode* root) {
+void Myorder(BinNode* root, vector <int> &sorted) {
     if (root == NULL) {
-        return 0;
+        return;
     }
-    else if (root->data <= 5)
-        return CountSmaller5(root->left) + CountSmaller5(root->right) + 1;
-    else
-       return CountSmaller5(root->left) + CountSmaller5(root->right);  
+    Myorder(root->left, sorted);
+    sorted.push_back(root->data);
+    Myorder(root->right, sorted);
 }
 
-int FindMin(BinNode* root) {
+// This function should return the k-th smallest element of the tree
+// Return INT_MAX if k is greater than the size of the BST
+// Should exit if root is NULL 
+int BSTSelect(BinNode* root, int k) {
+    static int size = root->subTreeSize;
     if (root == NULL) {
-        return INT_MIN;
+        exit(1);
     }
-    else if (root->left == NULL)
-        return root->data;
-    return FindMin(root->left);
-}
+    else if (size < k) {
+        return INT_MAX;
+    }
 
+    vector <int> sorted;
+    int value = 0;
+
+    Myorder(root, sorted);
+
+    value = sorted[k-1];
+
+    return value;
+}
 
 /////////////////////////////////////////////////////////////////////
 // Below are functions that I implemented for binary trees
@@ -93,10 +93,18 @@ void insert(BinNode*& root, Type data) {
     if (root == NULL) {
         root = new BinNode;
         root->data = data;
+        root->subTreeSize = 1;
         root->left = NULL;
         root->right = NULL;
+        return;
     }
-    else if (data > root->data) {
+    else if (root->data == data) {
+        return;
+    }
+
+    root->subTreeSize += 1;
+
+    if (data > root->data) {
         insert(root->right, data);
     }
     else if (data < root->data) {
@@ -136,7 +144,7 @@ void ShowTree(BinNode* root) {
                 int ldigit = cur.node->data % 10;
                 int rdigit = cur.node->data / 10;
                 lineBuffer0[mid] = ldigit + '0';
-                lineBuffer0[mid-1] = rdigit + '0';
+                lineBuffer0[mid - 1] = rdigit + '0';
             }
             else {
                 lineBuffer0[mid] = '?';
@@ -205,26 +213,6 @@ void ShowTree(BinNode* root) {
 
 }
 
-void DeleteTree(BinNode * &root)
-{
-    if (root == nullptr)
-        return;
-
-    DeleteTree(root->left);
-    DeleteTree(root->right);
-
-    if (root->left != nullptr && root->left->left == nullptr && root->left->right == nullptr)
-    {
-        delete root->left;
-        root->left = nullptr;
-    }
-    if (root->right != nullptr && root->right->left == nullptr && root->right->right == nullptr)
-    {
-        delete root->right;
-        root->right = nullptr;
-    }
-}
-
 void inorder(BinNode* root) {
     if (root == NULL) {
         return;
@@ -270,43 +258,37 @@ int main() {
 
     ShowTree(root);
 
-    // Uncomment the following to test your function
-     cout << "Total Number of leaves: " << CountLeaves(root) << endl;
+     cout << "The 3-rd smallest: " << BSTSelect(root, 3) << endl;
 
-    // Uncomment the following to test your function
-     cout << "Total Number of Nodes with Value <= 5: " << CountSmaller5(root) << endl;
-
-    // Uncomment the following to test your function
-     cout << "Smallest Value in BST: " << FindMin(root) << endl;
-    
-    
-    DeleteTree(root);
-     //Comment this line for additional tests for your function
-    // Additional tests
-    cout << "============================================================" << endl;
-    cout << "Reset tree" << endl;
-    cout << "Test for empty tree:" << endl;
-    root = NULL; // Empty BST
-    cout << "Total Number of leaves: " << CountLeaves(root) << endl;
-    cout << "Total Number of Nodes with Value <= 5: " << CountSmaller5(root) << endl;
-    cout << "Smallest Value in BST: " << FindMin(root) << endl;
-
-    cout << "============================================================" << endl;
-    cout << "Insert one node with data = 10" << endl;
-    cout << "Test for tree with one node:" << endl;
-    insert(root, 10);
-    cout << "Total Number of leaves: " << CountLeaves(root) << endl;
-    cout << "Total Number of Nodes with Value <= 5: " << CountSmaller5(root) << endl;
-    cout << "Smallest Value in BST: " << FindMin(root) << endl;
-
-    cout << "============================================================" << endl;
-    cout << "Insert one node with data = 4" << endl;
-    cout << "Test for tree with two nodes:" << endl;
-    insert(root, 4);
-    cout << "Total Number of leaves: " << CountLeaves(root) << endl;
-    cout << "Total Number of Nodes with Value <= 5: " << CountSmaller5(root) << endl;
-    cout << "Smallest Value in BST: " << FindMin(root) << endl;
-    
-    DeleteTree(root);
-     // Comment this line for additional tests for your function
+     cout << "The 7-th smallest: " << BSTSelect(root, 7) << endl;
 }
+
+
+/*
+Inserting 4,10,8,5,2,7,3,1,9 to empty BST.
+Inorder Traversal: 1 2 3 4 5 7 8 9 10 
+Postorder Traversal: 1 3 2 7 5 9 8 10 4 
+
+                                       4                                        
+                                       |                                        
+                   -----------------------------------------                    
+                   |                                       |                    
+                   2                                      10                    
+                   |                                       |                    
+         ---------------------                   -----------                    
+         |                   |                   |                              
+         1                   3                   8                              
+                                                 |                              
+                                            -----------                         
+                                            |         |                         
+                                            5         9                         
+                                            |                                   
+                                            ---                                 
+                                              |                                 
+                                              7                                 
+                                                                                
+                                                                                
+                                                                                
+The 3-rd smallest: 3
+The 7-th smallest: 8
+*/
